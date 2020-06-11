@@ -1,0 +1,26 @@
+---
+name: Button
+menu: Components
+route: /components/button
+---
+import { Playground, Props } from "docz";
+
+import Button from './Button';
+
+# The button
+Behold the awesome Button Component
+
+<Button content="click me!" onClick={() => alert('surprise MFer!')} />
+
+## Play with the button
+
+<Playground>
+  <h2> The button </h2>
+  <Button content="change me!" onClick={() => alert('surprise MFer!')} />
+</Playground>
+
+
+<br /><br />
+
+## Button props
+<Props of={Button} />

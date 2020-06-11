@@ -1,0 +1,90 @@
+---
+name: Getting Started with docz
+route: /
+---
+
+## Initial setup
+
+1. Install using:
+
+```sh
+npm install docz --dev
+```
+
+2. Add the following script to package.json:
+
+```sh
+"scripts": {
+    "docz:dev": "docz dev",
+    "docz:build": "docz build",
+    "docz:serve": "docz build && docz serve",
+    ...
+  },
+
+```
+
+3. Add a ```doczrc.js``` config file to the root of your project: 
+
+```js
+export default {
+  typescript: true
+}
+```
+
+link to github issue:
+[https://github.com/doczjs/docz/issues/847](https://github.com/doczjs/docz/issues/847)
+
+
+Then everything magically works.
+
+4. use the following npm script to start the docz dev server: 
+
+```
+npm run docz:dev
+```
+
+## Writing documentation
+
+Check out the [mdx getting started page](https://mdxjs.com/getting-started)
+
+ - Documentation files can go anywhere and have a ```.mdx``` extension
+ - By default the basic properties every document may have are: ```name```, ```menu```, and ```route```.
+   - name: The component’s page title
+   - menu: If you assign the same menu string to multiple files they will be grouped on the sidebar.
+   - route: If provided, route sets an URL other than the default-dashed-representation of the component’s filepath.
+
+## Built-in components
+
+Docz provides two basic components that help you write your docs. You have to import them on your files to be able to use them.
+
+```
+import { Playground, PropsTable } from "docz";
+```
+
+```
+<PropsTable />
+```
+
+helps you explain how to use your component using its PropTypes. If you specified them in your component like this:
+
+```jsx
+Button.propTypes = {
+  /**
+   * Sets the button as inverted
+   */
+  inverted: PropTypes.bool
+};
+
+Button.defaultProps = {
+  inverted: false
+};
+```
+
+Using ```<PropsTable of={Button} />```  will render a nice table of the component’s props: name, type, the default value and description.
+
+
+
+## Helpful Links
+
+Official Website: 
+[https://www.docz.site/](https://www.docz.site/)
